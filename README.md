@@ -1,9 +1,6 @@
 Description:
 
-  Send logs to logstash
-  https://www.elastic.co/products/logstash
-
-
+  Send logs to logstash directly from application.
 
 Maven: 3.3.3
 
@@ -14,3 +11,7 @@ Dependencies:
   <br>logback-classic: 1.1.7
   <br>logstash-logback-encoder: 4.6
 
+
+References:
+https://www.elastic.co/products/logstash
+https://github.com/logstash/logstash-logback-encoder
