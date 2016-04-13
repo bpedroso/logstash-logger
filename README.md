@@ -1,10 +1,10 @@
-Description:
+* Description:
 
   Send logs to logstash directly from application.
 
-Maven: 3.3.3
-
-Java: 1.8
+* Essential technologies
+<br>Maven: 3.3.3
+<br>Java: 1.8
 
 Dependencies:
   <br>logback-core: 1.1.7
@@ -13,5 +13,5 @@ Dependencies:
 
 
 References:
-https://www.elastic.co/products/logstash
-https://github.com/logstash/logstash-logback-encoder
+<br>https://www.elastic.co/products/logstash
+<br>https://github.com/logstash/logstash-logback-encoder
