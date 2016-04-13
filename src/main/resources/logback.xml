@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
+<configuration scan="true">
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- <encoder> <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern> </encoder> -->
+
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder">
+			<fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames" />
+			<jsonGeneratorDecorator class="com.bpedroso.log.decorator.PrettyPrintingDecorator" />
+			<shortenedLoggerNameLength>200</shortenedLoggerNameLength>
+		</encoder>
+	</appender>
+
+	<appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames" />
+            <shortenedLoggerNameLength>200</shortenedLoggerNameLength>
+        </encoder>
+
+		<destination>localhost:4560</destination>
+		<keepAliveDuration>5 minutes</keepAliveDuration>
+		<reconnectionDelay>10 seconds</reconnectionDelay>
+	</appender>
+
+	<logger name="com.bpedroso" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STASH" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STASH" />
+	</root>
+</configuration>
